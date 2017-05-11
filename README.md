@@ -1,2 +1,2 @@
-#React Timer App
-Timer and Countdown clock
+#React Boilerplate
+Skeleton of an app with Foundation CSS Framework baked in
