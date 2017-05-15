@@ -11,7 +11,7 @@ var ToDoList = React.createClass({
           <ToDo key={todo.id} {...todo}/>
         )
       })
-    }
+    };
 
     return (
       <div>
