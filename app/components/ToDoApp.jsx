@@ -1,6 +1,6 @@
 var React = require('react');
 var ToDoList = require('ToDoList');
-var ToDoForm = require('ToDoForm');
+var AddToDo = require('AddToDo');
 
 var ToDoApp = React.createClass({
   getInitialState : function () {
@@ -35,7 +35,7 @@ var ToDoApp = React.createClass({
       <div className="row">
         <div className="columns medium-8 large-6 small-centered">
           <ToDoList todos={todos}/>
-          <ToDoForm onAddToDo={this.handleAddToDo}/>
+          <AddToDo onAddToDo={this.handleAddToDo}/>
         </div>
       </div>
     )
