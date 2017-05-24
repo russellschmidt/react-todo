@@ -1,7 +1,7 @@
 {
-  "name": "rustyweather",
+  "name": "todo",
   "version": "1.0.0",
-  "description": "Simple weather providing app",
+  "description": "Simple to-do lists app",
   "main": "index.js",
   "scripts": {
     "test": "karma start",
