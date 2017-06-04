@@ -15,7 +15,7 @@ describe('Actions', () => {
 
   it('should generate add todo action', () => {
     var action = {
-      type: 'ADD_UNDERSCORE_TODO',
+      type: 'ADD_TODO',
       text: 'To do item'
     };
 

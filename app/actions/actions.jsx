@@ -7,7 +7,7 @@ export var setSearchText = (searchText) => {
 
 export var addTodo = (text) => {
   return {
-    type: 'ADD_UNDERSCORE_TODO',
+    type: 'ADD_TODO',
     text
   };
 };
