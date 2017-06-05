@@ -2,7 +2,8 @@ var React = require('react');
 var uuid = require('node-uuid');
 var moment = require('moment');
 
-var ToDoList = require('ToDoList');
+// var ToDoList = require('ToDoList');
+import ToDoList from 'ToDoList';
 var AddToDo = require('AddToDo');
 var ToDoSearch = require('ToDoSearch');
 var ToDoAPI = require('ToDoAPI');
