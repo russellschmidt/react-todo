@@ -19,7 +19,7 @@ describe('Actions', () => {
       text: 'To do item'
     };
 
-    var res = actions.addTodo(action.text);
+    var res = actions.addToDo(action.text);
 
     expect(res).toEqual(action);
   });
