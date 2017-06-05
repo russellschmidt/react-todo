@@ -1,6 +1,7 @@
 var React = require("react");
 var {connect} = require('react-redux');
-var ToDo = require("ToDo");
+import ToDo from 'ToDo';
+
 
 export var ToDoList = React.createClass({
   render: function () {
