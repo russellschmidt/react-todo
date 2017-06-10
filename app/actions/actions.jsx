@@ -1,14 +1,10 @@
+import firebase, {fb} from 'app/firebase/';
+import moment from 'moment';
+
 export var setSearchText = (searchText) => {
   return {
     type: 'SET_SEARCH_TEXT',
     searchText
-  };
-};
-
-export var addToDo = (text) => {
-  return {
-    type: 'ADD_TODO',
-    text
   };
 };
 
@@ -30,4 +26,33 @@ export var toggleTodo = (id) => {
     type: 'TOGGLE_TODO',
     id
   };
+};
+
+export var addToDo = (todo) => {
+  return {
+    type: 'ADD_TODO',
+    todo
+  };
+};
+
+export var startAddToDo = (text) => {
+  return (dispatch, getState) => {
+    var todo = {
+      // id: uuid(),  //provided by firebase
+      text,
+      completed: false,
+      createdAt: moment().unix(),
+      completedAt: null
+    };
+    var todoRef = fb.child('todos').push(todo);
+
+    return todoRef.then( () => {
+      dispatch(addToDo({
+        ...todo,
+        id: todoRef.key
+      }));
+    });
+  };
+
+  
 };
