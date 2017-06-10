@@ -4,6 +4,7 @@ var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
 var $ = require('jQuery');
 
+import * as actions from 'actions';
 var {AddToDo} = require('AddToDo');
 
 describe("AddToDo form component", () => {
@@ -11,12 +12,9 @@ describe("AddToDo form component", () => {
     expect(AddToDo).toExist();
   });
 
-  it("should dipatch AddToDo when valid todo text entered", () => {
+  it("should dispatch StartAddToDo when valid todo text entered", () => {
     var dummyText = 'walk the turtle';
-    var action = {
-      type: 'ADD_TODO',
-      text: dummyText
-    }
+    var action = actions.startAddToDo(dummyText);
     var spy = expect.createSpy();
     var toDoForm = TestUtils.renderIntoDocument(<AddToDo dispatch={spy}/>);
     var $el = $(ReactDOM.findDOMNode(toDoForm));
