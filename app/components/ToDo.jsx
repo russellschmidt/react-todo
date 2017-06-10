@@ -21,7 +21,7 @@ export var ToDo = React.createClass({
 
     return (
       <div className={todoClassName} onClick={() => {
-        dispatch(actions.toggleTodo(id));
+        dispatch(actions.startToggleToDo(id, !completed));
       }}>
         <div>
           <input type="checkbox" checked={completed} readOnly/>

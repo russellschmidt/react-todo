@@ -21,10 +21,11 @@ export var toggleShowCompleted = () => {
   };
 };
 
-export var toggleTodo = (id) => {
+export var updateToDo = (id, updates) => {
   return {
-    type: 'TOGGLE_TODO',
-    id
+    type: 'UPDATE_TODO',
+    id,
+    updates
   };
 };
 
@@ -53,6 +54,18 @@ export var startAddToDo = (text) => {
       }));
     });
   };
+};
 
-  
+export var startToggleToDo = (id, completed) => {
+  return (dispatch, getState) => {
+    var todoRef = fb.child(`todos/${id}`);
+    var updates = {
+      completed,
+      completedAt: completed ? moment().unix() : null
+    };
+
+    return todoRef.update(updates).then( () => {
+      dispatch(updateToDo(id, updates));
+    })
+  };
 };
