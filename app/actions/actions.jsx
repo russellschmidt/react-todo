@@ -66,6 +66,6 @@ export var startToggleToDo = (id, completed) => {
 
     return todoRef.update(updates).then( () => {
       dispatch(updateToDo(id, updates));
-    })
+    });
   };
 };
