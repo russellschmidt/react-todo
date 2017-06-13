@@ -21,6 +21,26 @@ export var toggleShowCompleted = () => {
   };
 };
 
+export var startAddToDos = () => {
+  return (dispatch, getState) => {
+    var todosRef = fb.child('todos');
+
+    return todosRef.once('value').then((snapshot) => {
+      var todos = snapshot.val() || {};
+      var parsedTodos = [];
+
+      Object.keys(todos).forEach((todoId) => {
+        parsedTodos.push({
+          id: todoId,
+          ...todos[todoId]
+        });
+      });
+
+      dispatch(addTodos(parsedTodos));
+    });
+  };
+};
+
 export var updateToDo = (id, updates) => {
   return {
     type: 'UPDATE_TODO',

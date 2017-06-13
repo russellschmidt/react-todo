@@ -94,13 +94,18 @@ describe('Actions', () => {
     var testToDoRef;
 
     beforeEach((done) => {
-      testToDoRef = fb.child('todos').push();
+      var todosRef = fb.child('todos');
 
-      testToDoRef.set({
-        test: 'something to do',
-        completed: false,
-        createdAt: 123456789
-      }).then(() => done());
+      todosRef.remove().then(() => {
+        testToDoRef = fb.child('todos').push();
+        return testToDoRef.set({
+          text: 'something to do',
+          completed: false,
+          createdAt: 123456789
+        })
+      })
+      .then( () => done() )
+      .catch(done)
     });
 
     afterEach((done) => {
@@ -127,7 +132,25 @@ describe('Actions', () => {
         expect(mockActions[0].updates.completedAt).toExist();
 
         done();
-      }, done());
+      }, done())
+    });
+    it('should populate todos and dispatch ADD_TODO action', (done) => {
+      const store = createMockStore({});
+      const action = actions.startAddToDos();
+
+      store.dispatch(action).then(() => {
+        const mockActions = store.getActions();
+
+        expect(mockActions[0]).toEqual({
+          type: 'ADD_TODO'
+        });
+
+        expect(mockActions[0].length).toEqual(1);
+
+        expect(mockActions[0].todos[0].text).toEqual(testToDoRef.text);
+
+        done();
+      }, done())
     });
   })
 })

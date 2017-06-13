@@ -9,16 +9,7 @@ var actions = require('actions');
 var store = require('configureStore').configure();
 var ToDoAPI = require('ToDoAPI');
 
-// import './../playground/firebase/index';
-
-store.subscribe(() => {
-  var state = store.getState();
-  console.log('New state', state);
-  ToDoAPI.setTodos(state.todos);
-});
-
-var initialTodos = ToDoAPI.getTodos();
-store.dispatch(actions.addTodos(initialTodos));
+store.dispatch(actions.startAddToDos());
 
 // // load foundation
 // require('style!css!foundation-sites/dist/foundation.min.css');
