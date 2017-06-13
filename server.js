@@ -3,9 +3,6 @@ var express = require('express');  // takes string name of module as argument
 // create our app
 var app = express();
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Our app is running on port ${ PORT }`);
-});
 
 // make a fix for open weather map. We need to adjust https traffic to http
 app.use( function (req, res, next) {
