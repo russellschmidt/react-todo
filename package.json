@@ -8,6 +8,10 @@
     "build": "webpack",
     "start": "npm run build && node server.js"
   },
+  "engines":{
+    "node": "6.11.0",
+    "npm": "3.10.10"
+  },
   "author": "Russell Schmidt",
   "license": "MIT",
   "dependencies": {
