@@ -9,6 +9,9 @@
     "postinstall": "npm run build",
     "start": "node server.js"
   },
+  "engines": {
+    "node": "7.5.0"
+  },
   "author": "Russell Schmidt",
   "license": "MIT",
   "dependencies": {
