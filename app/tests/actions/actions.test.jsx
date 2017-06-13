@@ -134,6 +134,7 @@ describe('Actions', () => {
         done();
       }, done())
     });
+    
     it('should populate todos and dispatch ADD_TODO action', (done) => {
       const store = createMockStore({});
       const action = actions.startAddToDos();
