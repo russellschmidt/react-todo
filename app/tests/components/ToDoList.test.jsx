@@ -26,7 +26,7 @@ describe('ToDoList component', () => {
     },
     {
       id: 2,
-      text: 'do dat',
+      text: 'do eeeet',
       completed: false,
       completedAt: undefined,
       createdAt: 99999
@@ -46,7 +46,7 @@ describe('ToDoList component', () => {
     expect(todosComponents.length).toBe(todos.length);
   });
 
-  it('should render empy message if no todos', () => {
+  it('should render empty message if no todos', () => {
     var todos = [];
 
     var todoList = TestUtils.renderIntoDocument(<ToDoList todos={todos}/>);
