@@ -4,10 +4,8 @@ module.exports = {
 
   filterTodos: function (todos, showCompleted, searchText) {
     var filteredTodos = todos;
-    var search = '';
-    if (searchText) {
-      search = searchText.toLowerCase();
-    }
+    var search = searchText ? searchText.toLowerCase() : '';
+
     // filter by show completed
     filteredTodos = filteredTodos.filter((todo) => {
       return !todo.completed || showCompleted;
