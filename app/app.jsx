@@ -4,7 +4,7 @@ var {Provider} = require('react-redux');
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 
 import Login from 'Login';
-var ToDoApp = require('ToDoApp');
+import ToDoApp from 'ToDoApp';
 
 var actions = require('actions');
 var store = require('configureStore').configure();

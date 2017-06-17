@@ -1,8 +1,15 @@
-var React = require("react");
-var {connect} = require('react-redux');
-var {Link} = require('react-router');
+import React from 'react';
+import * as Redux from 'react-redux';
+import {Link} from 'react-router';
+
+import * as actions from 'actions';
 
 export var Login = React.createClass({
+  onLogin() {
+    var {dispatch} = this.props;
+
+    dispatch(actions.startLogin());
+  },
   render() {
     return (
       <div>
@@ -12,7 +19,7 @@ export var Login = React.createClass({
             <div className="callout callout-auth">
               <h3>Login</h3>
               <p>Use your github account below</p>
-              <button className="button">Login with Github</button>
+              <button className="button" onClick={this.onLogin}>Login with Github</button>
             </div>
           </div>
         </div>
@@ -22,4 +29,4 @@ export var Login = React.createClass({
   }
 });
 
-export default connect()(Login)
+export default Redux.connect()(Login);
