@@ -134,7 +134,7 @@ describe('Actions', () => {
         done();
       }, done())
     });
-    
+
     it('should populate todos and dispatch ADD_TODO action', (done) => {
       const store = createMockStore({});
       const action = actions.startAddToDos();
@@ -153,5 +153,28 @@ describe('Actions', () => {
         done();
       }, done())
     });
-  })
+  });
+
+  describe('Test logging in and out', () => {
+    const uid = '12345abc';
+
+    it('should add a valid uid when login() action called', () => {
+      const action = {
+        type: "LOGIN",
+        uid
+      }
+
+      var res = actions.login(uid);
+      expect(res).toEqual(action);
+    });
+
+    it('should set uid to empty object when logout() action called', () => {
+      const action = {
+        type: "LOGOUT"
+      }
+
+      var res = actions.logout();
+      expect(res).toEqual(action);
+    });
+  });
 })
