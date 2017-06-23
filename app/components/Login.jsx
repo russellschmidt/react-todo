@@ -13,13 +13,13 @@ export var Login = React.createClass({
   render() {
     return (
       <div>
-        <h1 className="page-title">Octorusty ToDo App</h1>
+        <h1 className="page-title">To Do List App</h1>
         <div className="row">
           <div className="columns small-centered small-10 medium-6 large-4">
             <div className="callout callout-auth">
               <h3>Login</h3>
-              <p>Use your github account below</p>
-              <button className="button" onClick={this.onLogin}>Login with Github</button>
+              <p>Sign in with your <a href="https://github.com/" target="_blank">GitHub</a> account below</p>
+              <button className="button" onClick={this.onLogin}>Login with GitHub</button>
             </div>
           </div>
         </div>
