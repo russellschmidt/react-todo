@@ -11,14 +11,13 @@ import router from 'app/router/';
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(actions.login(user.uid));
+    store.dispatch(actions.startAddToDos());
     hashHistory.push('/todos');
   } else {
     store.dispatch(actions.logout());
     hashHistory.push('/');
   }
 });
-
-store.dispatch(actions.startAddToDos());
 
 // // load foundation
 // require('style!css!foundation-sites/dist/foundation.min.css');

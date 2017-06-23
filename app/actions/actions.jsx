@@ -23,7 +23,8 @@ export var toggleShowCompleted = () => {
 
 export var startAddToDos = () => {
   return (dispatch, getState) => {
-    var todosRef = fb.child('todos');
+    var uid = getState().auth.uid;
+    var todosRef = fb.child(`users/${uid}/todos`);
 
     return todosRef.once('value').then((snapshot) => {
       var todos = snapshot.val() || {};
@@ -65,7 +66,8 @@ export var startAddToDo = (text) => {
       createdAt: moment().unix(),
       completedAt: null
     };
-    var todoRef = fb.child('todos').push(todo);
+    var uid = getState().auth.uid;
+    var todoRef = fb.child(`users/${uid}/todos`).push(todo);
 
     return todoRef.then( () => {
       dispatch(addToDo({
@@ -78,7 +80,8 @@ export var startAddToDo = (text) => {
 
 export var startToggleToDo = (id, completed) => {
   return (dispatch, getState) => {
-    var todoRef = fb.child(`todos/${id}`);
+    var uid = getState().auth.uid;
+    var todoRef = fb.child(`users/${uid}/todos/${id}`);
     var updates = {
       completed,
       completedAt: completed ? moment().unix() : null
