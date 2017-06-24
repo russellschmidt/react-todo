@@ -3,10 +3,35 @@ var {connect} = require('react-redux');
 import ToDo from 'ToDo';
 var ToDoAPI = require('ToDoAPI');
 
-export var ToDoList = React.createClass({
-  render: function () {
-    var {todos, showCompleted, searchText} = this.props;
+// export var ToDoList = React.createClass({
+//   render: function () {
+//     var {todos, showCompleted, searchText} = this.props;
+//
+//     var renderTodos = () => {
+//       var filteredTodos = ToDoAPI.filterTodos(todos, showCompleted, searchText);
+//       if (filteredTodos.length === 0) {
+//         return (
+//           <p className="container__message">Nothing to do yet!</p>
+//         );
+//       }
+//       return filteredTodos.map((todo) => {
+//         return (
+//           <ToDo key={todo.id} {...todo}/>
+//         )
+//       });
+//     };
+//
+//     return (
+//       <div>
+//         {renderTodos()}
+//       </div>
+//     )
+//   }
+// });
 
+export class ToDoList extends React.Component {
+  render() {
+    var {todos, showCompleted, searchText} = this.props;
     var renderTodos = () => {
       var filteredTodos = ToDoAPI.filterTodos(todos, showCompleted, searchText);
       if (filteredTodos.length === 0) {
@@ -27,7 +52,7 @@ export var ToDoList = React.createClass({
       </div>
     )
   }
-});
+}
 
 export default connect(
   (state) => {
